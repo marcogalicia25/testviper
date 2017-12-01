@@ -3,7 +3,7 @@ package com.meltwater.androidviper.presentation.presenter;
 import com.meltwater.androidviper.domain.interactor.MainInteractor;
 import com.meltwater.androidviper.domain.interactor.MainInteractorImp;
 import com.meltwater.androidviper.presentation.view.MainView;
-import com.mswim.architecture.mvp.BasePresenter;
+import com.mswim.architecture.viper.BasePresenter;
 
 
 /**

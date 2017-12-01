@@ -1,4 +1,4 @@
-package com.mswim.architecture.mvp;
+package com.mswim.architecture.viper;
 
 import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
  * Created by marcogalicia on 25/10/16.
  */
 
-public class BasePresenter <V extends MvpView> implements MvpPresenter<V> {
+public class BasePresenter <V extends ViperView> implements ViperPresenter<V> {
 
     private WeakReference<V> viewRef;
 

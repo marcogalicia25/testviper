@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.Loader;
 import android.util.Log;
 
-import com.mswim.architecture.mvp.MvpPresenter;
-import com.mswim.architecture.mvp.MvpView;
+import com.mswim.architecture.viper.ViperPresenter;
+import com.mswim.architecture.viper.ViperView;
 
 /**
  * Created by marcogalicia on 19/03/17.
  */
 
-public final class PresenterLoader<V extends MvpView,P extends MvpPresenter<V>> extends Loader<P> {
+public final class PresenterLoader<V extends ViperView,P extends ViperPresenter<V>> extends Loader<P> {
 
     private P presenter;
     private final String tag;

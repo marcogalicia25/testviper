@@ -7,12 +7,12 @@ import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.mswim.architecture.mvp.MvpDelegateCallback;
-import com.mswim.architecture.mvp.MvpPresenter;
-import com.mswim.architecture.mvp.MvpView;
+import com.mswim.architecture.viper.ViperDelegateCallback;
+import com.mswim.architecture.viper.ViperPresenter;
+import com.mswim.architecture.viper.ViperView;
 
-public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
-        extends Activity implements MvpDelegateCallback<V, P>, MvpView {
+public abstract class BaseActivity<V extends ViperView, P extends ViperPresenter<V>>
+        extends Activity implements ViperDelegateCallback<V, P>, ViperView {
 
     protected P presenter;
     private static final String TAG = "base-activity";
@@ -66,7 +66,7 @@ public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
 
     @NonNull
     @Override
-    public V getMvpView() {
+    public V getViperView() {
         return (V) this;
     }
 

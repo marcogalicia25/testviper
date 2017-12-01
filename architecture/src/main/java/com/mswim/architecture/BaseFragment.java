@@ -9,16 +9,16 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
-import com.mswim.architecture.mvp.MvpDelegateCallback;
-import com.mswim.architecture.mvp.MvpPresenter;
-import com.mswim.architecture.mvp.MvpView;
+import com.mswim.architecture.viper.ViperDelegateCallback;
+import com.mswim.architecture.viper.ViperPresenter;
+import com.mswim.architecture.viper.ViperView;
 
 /**
  * Created by marcogalicia on 25/10/16.
  */
 
-public abstract class BaseFragment<V extends MvpView, P extends MvpPresenter<V>> extends Fragment
-        implements MvpDelegateCallback<V, P>, MvpView {
+public abstract class BaseFragment<V extends ViperView, P extends ViperPresenter<V>> extends Fragment
+        implements ViperDelegateCallback<V, P>, ViperView {
 
     protected P presenter;
     private static final String TAG = "base-fragment";
@@ -33,7 +33,7 @@ public abstract class BaseFragment<V extends MvpView, P extends MvpPresenter<V>>
     }
 
     @Override
-    public V getMvpView() {
+    public V getViperView() {
         return (V) this;
     }
 

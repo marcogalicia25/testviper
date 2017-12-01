@@ -1,4 +1,4 @@
-package com.mswim.architecture.mvp;
+package com.mswim.architecture.viper;
 
 /**
  * Created by marcogalicia on 28/01/17.
