@@ -6,14 +6,9 @@ import android.support.annotation.UiThread;
  * Created by marcogalicia on 25/10/16.
  */
 
-public interface ViperPresenter<V extends ViperView> {
+public interface BaseViperView<M> extends ViperView {
 
     @UiThread
-    void attachView(V view);
-
-    @UiThread
-    void detachView();
-
-    void onFinish();
+    void showDatas(M data);
 
 }

@@ -16,47 +16,13 @@ import io.reactivex.schedulers.Schedulers;
  * Created by marcogalicia on 01/05/17.
  */
 
-public class MainInteractorImp {
+public class CarBrandsInteractorImp implements CarBrandsInteractor.Input {
 
-    private MainInteractor interf;
+    private CarBrandsInteractor.OutPut<String> interactor;
     private final CompositeDisposable disposables = new CompositeDisposable();
 
-    public MainInteractorImp(MainInteractor interf) {
-        this.interf = interf;
-    }
-
-    public void routerExample() {
-        Single.just("Meltwater")
-                .subscribe(getSingleObserver());
-    }
-
-    private SingleObserver<String> getSingleObserver() {
-        return new SingleObserver<String>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onSuccess(String value) {
-                interf.goNextScreen();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-        };
-    }
-
-
-    public void doSomeWork() {
-        disposables.add(getObservable()
-                // Run on a background thread
-                .subscribeOn(Schedulers.io())
-                // Be notified on the main thread
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(getObserver()));
+    public CarBrandsInteractorImp(CarBrandsInteractor.OutPut<String> interactor) {
+        this.interactor = interactor;
     }
 
     private Observable<? extends Long> getObservable() {
@@ -68,7 +34,7 @@ public class MainInteractorImp {
 
             @Override
             public void onNext(Long value) {
-                interf.loadDataCallBack("Value: "+value);
+                interactor.CarBrandsInteractorOutput("Value: " + value);
             }
 
             @Override
@@ -78,12 +44,22 @@ public class MainInteractorImp {
 
             @Override
             public void onComplete() {
-                interf.loadDataCallBack("Complete!!!");
+                interactor.CarBrandsInteractorOutput("Complete!!!");
             }
         };
     }
 
     public void removeSubscription() {
         disposables.clear();
+    }
+
+    @Override
+    public void CarBrandsInteractorInput() {
+        disposables.add(getObservable()
+                // Run on a background thread
+                .subscribeOn(Schedulers.io())
+                // Be notified on the main thread
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(getObserver()));
     }
 }

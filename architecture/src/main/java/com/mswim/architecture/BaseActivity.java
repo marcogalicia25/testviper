@@ -15,45 +15,12 @@ public abstract class BaseActivity<V extends ViperView, P extends ViperPresenter
         extends Activity implements ViperDelegateCallback<V, P>, ViperView {
 
     protected P presenter;
-    private static final String TAG = "base-activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLoaderManager().initLoader(loaderId(), null, new LoaderManager.LoaderCallbacks<P>() {
-            @Override
-            public final Loader<P> onCreateLoader(int id, Bundle args) {
-                Log.i(TAG, "onCreateLoader");
-                return new PresenterLoader<>(BaseActivity.this, createPresenter(), tag());
-            }
-
-            @Override
-            public final void onLoadFinished(Loader<P> loader, P presenter) {
-                Log.i(TAG, "onLoadFinished");
-                BaseActivity.this.presenter = presenter;
-                onPresenterPrepared(presenter);
-            }
-
-            @Override
-            public final void onLoaderReset(Loader<P> loader) {
-                Log.i(TAG, "onLoaderReset");
-                BaseActivity.this.presenter = null;
-                onPresenterDestroyed();
-            }
-        });
-
+        presenter = createPresenter();
     }
-
-
-    protected abstract void onPresenterPrepared(@NonNull P presenter);
-
-    protected void onPresenterDestroyed() {
-    }
-
-    protected abstract int loaderId();
-
-    @NonNull
-    protected abstract String tag();
 
     @NonNull
     @Override
@@ -70,14 +37,10 @@ public abstract class BaseActivity<V extends ViperView, P extends ViperPresenter
         return (V) this;
     }
 
-    public BaseActivity getBaseActivity() {
-        return BaseActivity.this;
-    }
-
     @Override
-    protected void onDestroy() {
+    public void finish() {
         if (getPresenter() != null)
-            getPresenter().onDestroy();
-        super.onDestroy();
+            getPresenter().onFinish();
+        super.finish();
     }
 }

@@ -9,6 +9,7 @@ import com.meltwater.androidviper.presentation.ui.activity.SecondActivity;
  * Created by marcogalicia on 11/30/17.
  */
 
+//unsure if this class worth, this could be moved to the activity.
 public class RouterImp implements Router {
 
     private Context context;

@@ -15,7 +15,7 @@ public class BasePresenter <V extends ViperView> implements ViperPresenter<V> {
 
     @UiThread
     @Override public void attachView(V view) {
-        viewRef = new WeakReference<V>(view);
+        viewRef = new WeakReference<>(view);
     }
 
     @UiThread
@@ -38,7 +38,7 @@ public class BasePresenter <V extends ViperView> implements ViperPresenter<V> {
     }
 
     @Override
-    public void onDestroy() {
+    public void onFinish() {
 
     }
 
