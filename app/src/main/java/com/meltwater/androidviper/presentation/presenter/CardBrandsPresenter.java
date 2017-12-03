@@ -21,8 +21,8 @@ public class CardBrandsPresenter extends BasePresenter<CarBrandView> implements 
     //Here we can declare this method in a interface to be more formal.
     //Or simply declare the method inside the presenter.
     //actually the same for Input/Output in the interactor. :)
-    public void carBrandsInput() {
-        interactor.CarBrandsInteractorInput();
+    public void getDatas() {
+        interactor.carBrandsInteractorInput();
     }
 
     public void routerNextScreen() {
@@ -31,7 +31,7 @@ public class CardBrandsPresenter extends BasePresenter<CarBrandView> implements 
     }
 
     @Override
-    public void CarBrandsInteractorOutput(String data) {
+    public void carBrandsInteractorOutput(String data) {
         if (isViewAttached())
             getView().showDatas(data);
     }

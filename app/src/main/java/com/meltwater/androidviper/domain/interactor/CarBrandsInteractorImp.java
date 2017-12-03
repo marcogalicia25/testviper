@@ -34,7 +34,7 @@ public class CarBrandsInteractorImp implements CarBrandsInteractor.Input {
 
             @Override
             public void onNext(Long value) {
-                interactor.CarBrandsInteractorOutput("Value: " + value);
+                interactor.carBrandsInteractorOutput("Value: " + value);
             }
 
             @Override
@@ -44,7 +44,7 @@ public class CarBrandsInteractorImp implements CarBrandsInteractor.Input {
 
             @Override
             public void onComplete() {
-                interactor.CarBrandsInteractorOutput("Complete!!!");
+                interactor.carBrandsInteractorOutput("Complete!!!");
             }
         };
     }
@@ -54,7 +54,7 @@ public class CarBrandsInteractorImp implements CarBrandsInteractor.Input {
     }
 
     @Override
-    public void CarBrandsInteractorInput() {
+    public void carBrandsInteractorInput() {
         disposables.add(getObservable()
                 // Run on a background thread
                 .subscribeOn(Schedulers.io())

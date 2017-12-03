@@ -6,9 +6,9 @@ package com.mswim.architecture.viper;
 
 public interface BaseInteractor {
     interface Input {
-        void CarBrandsInteractorInput();
+        void carBrandsInteractorInput();
     }
     interface OutPut<T> {
-        void CarBrandsInteractorOutput(T data);
+        void carBrandsInteractorOutput(T data);
     }
 }

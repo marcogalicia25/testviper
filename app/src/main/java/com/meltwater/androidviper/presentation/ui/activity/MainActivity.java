@@ -31,7 +31,7 @@ public class MainActivity extends BaseActivity<CarBrandView, CardBrandsPresenter
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getPresenter().carBrandsInput();
+                getPresenter().getDatas();
             }
         });
 
