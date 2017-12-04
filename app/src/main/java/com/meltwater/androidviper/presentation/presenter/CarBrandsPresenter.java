@@ -9,12 +9,12 @@ import com.mswim.architecture.viper.BasePresenter;
  * Created by marcogalicia on 01/05/17.
  */
 
-public class CardBrandsPresenter extends BasePresenter<CarBrandView> implements CarBrandsInteractor.OutPut<String> {
+public class CarBrandsPresenter extends BasePresenter<CarBrandView> implements CarBrandsInteractor.OutPut<String> {
 
 
     private final CarBrandsInteractorImp interactor;
 
-    public CardBrandsPresenter() {
+    public CarBrandsPresenter() {
         interactor = new CarBrandsInteractorImp(this);
     }
 

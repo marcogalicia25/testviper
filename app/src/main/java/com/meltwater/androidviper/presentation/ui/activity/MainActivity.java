@@ -7,13 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.meltwater.androidviper.R;
-import com.meltwater.androidviper.presentation.presenter.CardBrandsPresenter;
+import com.meltwater.androidviper.presentation.presenter.CarBrandsPresenter;
 import com.meltwater.androidviper.presentation.ui.Router.Router;
 import com.meltwater.androidviper.presentation.ui.Router.RouterImp;
 import com.meltwater.androidviper.presentation.view.CarBrandView;
 import com.mswim.architecture.BaseActivity;
 
-public class MainActivity extends BaseActivity<CarBrandView, CardBrandsPresenter> implements CarBrandView {
+public class MainActivity extends BaseActivity<CarBrandView, CarBrandsPresenter> implements CarBrandView {
 
     private TextView txtView;
     private Button btnView;
@@ -47,8 +47,8 @@ public class MainActivity extends BaseActivity<CarBrandView, CardBrandsPresenter
 
     @NonNull
     @Override
-    public CardBrandsPresenter createPresenter() {
-        return new CardBrandsPresenter();
+    public CarBrandsPresenter createPresenter() {
+        return new CarBrandsPresenter();
     }
 
     @Override
